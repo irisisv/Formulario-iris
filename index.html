@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<br>
+<center><h1>FORMULARIOS</h1></center>
+</br>
+
+<body>
+
+
+<form action="" method="post" id='form'>
+<h2 class="error" id="msj"></h2>
+<label for="nombre"> Nombre: </label>
+<input type="text" name="nombre" id="nombre" required maxlength="45" />
+
+<br>
+<h2 class="error" id="msj2"></h2>
+<br>
+<label for="Primer apellido "> Primer Apellido : </label>
+<input type="text" name="apellido" id="apellido" >
+
+<br>
+<h2 class="error" id="msj3"></h2>
+<br>
+<label for="Segundo apellido "> Segundo Apellido : </label>
+<input type="text" name="apellido" id="apellido" >
+
+
+<br>
+<h2 class="error" id="msj4"></h2>
+<br>
+<label for="email"> E-mail </label>
+<input type="email" name="email" id="email">
+
+<br>
+<h2 class="error" id="msj5"></h2>
+<br>
+<label for="msg"> Mensaje </label>
+<textarea id="msg" name="user_message"></textarea>
+
+<br>
+<h2 class="error" id="msj6"></h2>
+<br>
+<label for="passw"> Password </label>
+<input type="password" name="pasw" id="password" >
+<br>
+<button type="submit">Enviar</button>
+
+<br>
+<h2 class="error" id="msj7"></h2>
+<br>
+<label for="Año de nacimiento"> Año de nacimiento</label>
+<input type="number" name="nacido" min="1970-2000">
+
+<br>
+<h2 class="error" id="msj8"></h2>
+<br>
+<label for="Telefono"> Telefono</label>
+<input type="text" name="telefono" min="telefono">
+
+<br>
+Fecha: <input type="date" name="fecha">
+
+<br>
+Hora: <input type="time" name="hora">
+
+
+<br>
+<h2 class="error" id="msj9"></h2>
+<br>
+<label for="Genero"> Genero</label>
+    <input type="radio" name="hm" value="h" required> Masculino
+    <input type="radio" name="hm" value="m" required> Femenino
+  </p></br>
+  
+
+  <br>
+  <h2 class="error" id="msj10"></h2>
+  <br>
+  <label for="Edad"> Edad</label>
+  <input type="radio" name="edad" value="menor"> Menor
+  <input type="radio" name="edad" value="adulto" required> Adulto
+</p></br>
+
+
+  
+
+
+
+
+</form>
+
+
+
+
+<style>
+  .error{
+    color: red;
+    font-size: 10px;
+    font-family: arial;
+  }
+  body{background-color: aqua;
+}
+  
+form {
+    /* Centrar el formulario en la página */
+    margin: 0 auto;
+    width: 400px;
+    /* Esquema del formulario */
+    padding: 1em;
+    border: 5px solid purple;
+    border-radius: 1em;
+}
+
+  input[type="text"], input[type="datetime-local"], input[type="color"], select {
+    box-shadow: inset 1px 1px 3px #ccc;
+    border-radius: 5px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  button {
+    width: 60%;
+    margin: 0 auto;
+  }
+  input,
+  textarea {
+    /* Para asegurarse de que todos los campos de texto tienen la misma configuración de letra
+       Por defecto, las áreas de texto tienen un tipo de letra monoespaciada */
+    font: 1em sans-serif;
+     /* Tamaño uniforme del campo de texto */
+     width: 300px;
+    box-sizing: border-box;
+  
+    /* Hacer coincidir los bordes del campo del formulario */
+    border: 1px solid ;
+  }
+  
+  
+  button, label, input {
+    display: block;
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px;
+    height: 30px;
+  }
+  
+ 
+  
+
+</style>
+
+
+
+
+
+<script type="text/javascript">
+
+const nombre = document.getElementById('nombre');
+const Primer apellido = document.getElementById('Primer apellido');
+const Segundo apellido = document.getElementById(' Segundo apellido');
+const email = document.getElementById('email');
+const msg = document.getElementById('Mensaje');
+const password = document.getElementById('password');
+const nacido = document.getElementById('Año de nacido');
+const telefono= document.getElementById('Telefono');
+
+
+
+const msj = document.getElementById('msj');
+const msj2 = document.getElementById('msj2');
+const msj3= document.getElementById('msj3');
+const msj4 = document.getElementById('msj4');
+const msj5= document.getElementById('msj5');
+const msj6= document.getElementById('msj6');
+const msj7= document.getElementById('msj7');
+const msj8= document.getElementById('msj8');
+
+const form = document.getElementById('form');
+
+form.addEventListener("submit", e=>{
+e.preventDefault();
+
+let regexEmail= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+
+if (  nombre.value.length<2) {
+	msj.innerText="el nombre debe de ser mayor a 2 digitos"
+
+}
+if (  Primer apellido.value.length<2) {
+    msj2.innerText="el primer apelido debe de ser mayor a 2 digitos"
+
+}
+if (  Segundo apellido.value.length<2) {
+    msj3.innerText="el  segundo apelido debe de ser mayor a 2 digitos"
+
+}
+if (!regexEmail.test(email.value)) {
+  msj4.innerText=" * el EMAIL no es correcto"
+
+}
+if (  Mensaje.value.length<2) {
+    msj5.innerText="Escriba un mensaje"
+
+}
+if (  password.value.length<8) {
+    msj6.innerText="el pasword debe ser mayor a 8 caracteres"
+
+}
+if (  Año de nacido.value.length<2) {
+    msj7.innerText="Ponga su fecha de nacimiento"
+
+}
+if (  Telefono.value.length<2) {
+    msj8.innerText="Ponga su telefono"
+
+}
+
+
+
+else{ 
+alert('verifique los campos')}
+
+
+})
+
+
+
+</script>
+
+</body>
+</html>
